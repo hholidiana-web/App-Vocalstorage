@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#5b4bdb">
+  <title>Aplikasi Login & Catatan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <section class="card" id="authCard">
+      <div class="brand">
+        <div class="brand-icon">L</div>
+        <p class="eyebrow">RUANG PRIBADI</p>
+        <h1 id="formTitle">Selamat Datang</h1>
+        <p class="subtitle" id="formSubtitle">Masuk untuk menyimpan catatanmu.</p>
+      </div>
+
+      <form id="authForm">
+        <div class="field" id="nameField" hidden>
+          <label for="name">Nama</label>
+          <input id="name" type="text" placeholder="Nama kamu" autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="nama@email.com" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label for="password">Kata sandi</label>
+          <input id="password" type="password" placeholder="Minimal 6 karakter" minlength="6" autocomplete="current-password" required>
+        </div>
+        <p class="message" id="authMessage" role="status"></p>
+        <button class="primary-btn" id="submitBtn" type="submit">Masuk</button>
+      </form>
+
+      <p class="switch-text">
+        <span id="switchLabel">Belum punya akun?</span>
+        <button class="text-btn" id="switchMode" type="button">Daftar sekarang</button>
+      </p>
+      <p class="demo-note">Akun demo disimpan di LocalStorage browser ini.</p>
+    </section>
+
+    <section class="card dashboard" id="dashboard" hidden>
+      <header class="dash-header">
+        <div>
+          <p class="eyebrow">DASHBOARD</p>
+          <h1>Halo, <span id="userName">Pengguna</span>!</h1>
+          <p class="subtitle">Catatanmu tersimpan di perangkat ini.</p>
+        </div>
+        <button class="logout-btn" id="logoutBtn" type="button">Keluar</button>
+      </header>
+
+      <section class="note-panel">
+        <label for="noteInput">Catatan baru</label>
+        <textarea id="noteInput" rows="4" placeholder="Tulis ide, tugas, atau pengingat..."></textarea>
+        <div class="note-actions">
+          <span class="small-hint">Simpan catatan kapan saja.</span>
+          <button class="primary-btn save-btn" id="saveNote" type="button">Simpan catatan</button>
+        </div>
+        <p class="message" id="noteMessage" role="status"></p>
+      </section>
+
+      <div class="notes-heading">
+        <h2>Catatan saya</h2>
+        <span class="count" id="noteCount">0 catatan</span>
+      </div>
+      <div class="notes-list" id="notesList"></div>
+      <p class="storage-info">Penyimpanan: LocalStorage • Data hanya tersedia pada browser/perangkat ini.</p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
